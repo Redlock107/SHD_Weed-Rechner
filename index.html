@@ -11,8 +11,8 @@
 		* { box-sizing:border-box; }
 		body { margin:0; min-height:100vh; color:var(--text); background:radial-gradient(ellipse at 82% 0%,#26301d 0,transparent 34%),linear-gradient(135deg,#080a0b 0%,#111715 58%,#0b0d0e 100%); font-family:'DM Sans',sans-serif; }
 		body:before { content:''; position:fixed; inset:0; pointer-events:none; opacity:.24; background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px); background-size:42px 42px; mask-image:linear-gradient(to bottom,black,transparent 78%); }
-		.shell { width:min(1020px,calc(100% - 36px)); margin:auto; padding:28px 0 42px; position:relative; }
-		header { min-height:250px; margin:0 calc((1020px - 100vw)/2); padding:34px max(18px,calc((100vw - 1020px)/2)); display:flex; align-items:flex-end; justify-content:space-between; gap:24px; border-bottom:2px solid var(--gold); position:relative; overflow:hidden; isolation:isolate; background:#0c0f0f url('logo.png') center 42% / cover no-repeat; animation:rise .55s ease both; }
+		.shell { width:min(1020px,calc(100% - 36px)); margin:auto; padding:14px 0 24px; position:relative; }
+		header { min-height:145px; margin:0 calc((1020px - 100vw)/2); padding:22px max(18px,calc((100vw - 1020px)/2)); display:flex; align-items:flex-end; justify-content:space-between; gap:24px; border-bottom:2px solid var(--gold); position:relative; overflow:hidden; isolation:isolate; background:#0c0f0f url('logo.png') center 42% / cover no-repeat; animation:rise .55s ease both; }
 		header:before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,rgba(8,10,11,.94) 0%,rgba(8,10,11,.68) 55%,rgba(8,10,11,.5) 100%),linear-gradient(0deg,rgba(8,10,11,.72),transparent 58%); }
 		.brand { display:flex; align-items:center; gap:15px; }
 		.logo { width:54px; height:54px; display:grid; place-items:center; border:1px solid var(--gold); color:var(--gold-light); font:700 22px 'Barlow Condensed',sans-serif; background:rgba(10,14,11,.72); box-shadow:inset 0 0 0 4px rgba(214,168,74,.08); }
@@ -22,31 +22,37 @@
 		h1 span { color:var(--gold); }
 		.status { color:var(--muted); font-size:12px; text-align:right; line-height:1.8; }
 		.status b { color:var(--gold); font-weight:500; }
-		.intro { padding:25px 0 22px; display:flex; justify-content:space-between; align-items:end; gap:20px; border-bottom:1px solid rgba(214,168,74,.28); animation:rise .55s .08s ease both; }
+		.intro { padding:13px 0 12px; display:flex; justify-content:space-between; align-items:end; gap:20px; border-bottom:1px solid rgba(214,168,74,.28); animation:rise .55s .08s ease both; }
 		.intro p { max-width:580px; color:var(--muted); line-height:1.6; font-size:14px; }
-		.grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; padding-top:18px; }
-		.card { min-width:0; padding:22px; border:1px solid var(--line); border-top:2px solid rgba(214,168,74,.55); background:linear-gradient(145deg,rgba(33,30,24,.97),rgba(16,17,15,.97)); animation:rise .55s .14s ease both; }
-		.card-head { display:flex; align-items:center; gap:11px; margin-bottom:8px; }
+		.section-heading { display:flex; justify-content:space-between; align-items:end; gap:18px; margin-top:15px; padding-bottom:7px; border-bottom:1px solid var(--line); }
+		.section-heading .eyebrow { margin-bottom:4px; }
+		.section-heading h2 { color:var(--text); font:600 23px 'Barlow Condensed',sans-serif; text-transform:uppercase; }
+		.section-heading p { color:var(--muted); font-size:12px; text-align:right; }
+		.grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; padding-top:10px; }
+		.card { grid-column:span 3; min-width:0; padding:15px; border:1px solid var(--line); border-top:2px solid rgba(214,168,74,.55); background:linear-gradient(145deg,rgba(33,30,24,.97),rgba(16,17,15,.97)); animation:rise .55s .14s ease both; }
+		.grid[aria-label="Joint- und Verkaufsrechner"] .card { grid-column:span 2; }
+		.card-head { display:flex; align-items:center; gap:9px; margin-bottom:5px; }
 		.num { width:29px; height:29px; display:grid; place-items:center; border:1px solid var(--gold); color:var(--gold); font:600 15px 'Barlow Condensed',sans-serif; }
-		.card h2 { color:var(--gold-light); font:600 24px 'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:.5px; }
-		.sub { margin:0 0 20px 40px; color:var(--muted); font-size:12px; }
-		.field { margin-bottom:15px; }
-		label { display:block; margin-bottom:7px; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:1px; }
-		input { width:100%; padding:12px 13px; border:1px solid var(--line); border-left:2px solid rgba(214,168,74,.55); outline:none; background:#0c100e; color:var(--text); font:500 18px 'DM Sans',sans-serif; transition:border-color .2s,box-shadow .2s; }
+		.card h2 { color:var(--gold-light); font:600 21px 'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:.5px; }
+		.sub { margin:0 0 12px 38px; color:var(--muted); font-size:11px; }
+		.field { margin-bottom:9px; }
+		label { display:block; margin-bottom:5px; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:1px; }
+		input { width:100%; padding:9px 10px; border:1px solid var(--line); border-left:2px solid rgba(214,168,74,.55); outline:none; background:#0c100e; color:var(--text); font:500 16px 'DM Sans',sans-serif; transition:border-color .2s,box-shadow .2s; }
 		input:hover { border-color:rgba(214,168,74,.75); }
 		input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(214,168,74,.12); }
-		.results { min-height:145px; margin-top:20px; padding-top:14px; border-top:1px solid var(--line); display:grid; align-content:start; gap:8px; }
+		.results { min-height:0; margin-top:12px; padding-top:10px; border-top:1px solid var(--line); display:grid; align-content:start; gap:5px; }
 		.result-row { display:flex; justify-content:space-between; align-items:center; gap:14px; color:var(--muted); font-size:13px; }
-		.result-row strong { color:var(--gold-light); font:700 21px 'Barlow Condensed',sans-serif; white-space:nowrap; }
+		.result-row strong { color:var(--gold-light); font:700 18px 'Barlow Condensed',sans-serif; white-space:nowrap; }
 		.result-row.total { margin-top:3px; padding-top:10px; border-top:1px solid rgba(214,168,74,.65); }
 		.result-row.total span { color:var(--text); }
-		.result-row.total strong { color:var(--gold); font-size:27px; }
-		.formula { margin-top:16px; padding-left:11px; border-left:2px solid var(--amber); color:var(--muted); font-size:12px; line-height:1.6; }
+		.result-row.total strong { color:var(--gold); font-size:23px; }
+		.formula { margin-top:10px; padding-left:9px; border-left:2px solid var(--amber); color:var(--muted); font-size:11px; line-height:1.5; }
 		.formula strong { color:var(--text); font-weight:500; }
-		footer { margin-top:20px; color:#858a7f; font-size:10px; letter-spacing:.3px; text-align:right; }
+		footer { margin-top:12px; color:#858a7f; font-size:10px; letter-spacing:.3px; text-align:right; }
 		footer span { color:var(--gold); }
 		@keyframes rise { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-		@media(max-width:700px) { .shell { width:min(100% - 26px,520px); padding-top:13px; } header { min-height:220px; margin:0 calc((min(520px,100vw - 26px) - 100vw)/2); padding:25px max(13px,calc((100vw - 520px)/2)); } .grid { grid-template-columns:1fr; gap:13px; } .intro { align-items:flex-start; flex-direction:column; gap:10px; } .status { font-size:11px; } }
+		@media(max-width:900px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .grid .card, .grid[aria-label="Joint- und Verkaufsrechner"] .card { grid-column:span 1; } }
+		@media(max-width:700px) { .shell { width:min(100% - 26px,520px); padding-top:13px; } header { min-height:160px; margin:0 calc((min(520px,100vw - 26px) - 100vw)/2); padding:20px max(13px,calc((100vw - 520px)/2)); } .grid { grid-template-columns:1fr; gap:10px; } .intro { align-items:flex-start; flex-direction:column; gap:7px; } .section-heading { align-items:flex-start; flex-direction:column; gap:5px; } .section-heading p { text-align:left; } .status { font-size:11px; } }
 		@media(max-width:390px) { .brand { gap:10px; } .logo { width:46px; height:46px; } .card { padding:18px; } }
 	</style>
 </head>
@@ -56,7 +62,8 @@
 			<div class="brand"><div class="logo">V1</div><div><div class="eyebrow">Shadow District</div><h1>Weed <span>Lab</span></h1></div></div>
 			<div class="status">SYSTEM STATUS<br><b>● ONLINE // LOCAL CALCULATOR</b></div>
 		</header>
-		<section class="intro"><p>Verpacktes Weed planen: Materialbedarf fuer deine Zielmenge berechnen oder den maximalen Output aus vorhandenen Materialien ermitteln.</p><div class="eyebrow">V1.0 / FIELD TOOL</div></section>
+		<section class="intro"><p>Verpacktes Weed und Joints planen: Materialbedarf fuer deine Zielmenge berechnen oder den maximalen Output aus vorhandenen Materialien ermitteln.</p><div class="eyebrow">V1.0 / FIELD TOOL</div></section>
+		<div class="section-heading"><div><div class="eyebrow">PRODUKT 01</div><h2>Verpacktes Weed</h2></div><p>Zielmenge oder Materialbestand berechnen</p></div>
 		<section class="grid" aria-label="Weed-Verpackungsrechner">
 			<article class="card">
 				<div class="card-head"><div class="num">01</div><h2>Zielmenge berechnen</h2></div>
@@ -72,6 +79,31 @@
 				<div class="field"><label for="packagingIn">Verpackungsmaterial vorhanden</label><input id="packagingIn" type="number" min="0" step="1" value="5" inputmode="numeric"></div>
 				<div class="results" id="materialsOut" aria-live="polite"></div>
 				<p class="formula"><strong>50 Marihuana-Buds + 5 Verpackungsmaterial</strong> = 5 verpacktes Weed</p>
+			</article>
+		</section>
+		<div class="section-heading"><div><div class="eyebrow">PRODUKT 02</div><h2>Joints</h2></div><p>Herstellung und Verkauf an Buerger</p></div>
+		<section class="grid" aria-label="Joint- und Verkaufsrechner">
+			<article class="card">
+				<div class="card-head"><div class="num">03</div><h2>Joint-Zielmenge</h2></div>
+				<p class="sub">Materialbedarf fuer fertige Joints</p>
+				<div class="field"><label for="targetJointIn">Joints gewuenscht</label><input id="targetJointIn" type="number" min="0" step="1" value="5" inputmode="numeric"></div>
+				<div class="results" id="targetJointOut" aria-live="polite"></div>
+				<p class="formula"><strong>1 Joint</strong> = 1 Marihuana-Bud + 1 Papier</p>
+			</article>
+			<article class="card">
+				<div class="card-head"><div class="num">04</div><h2>Joint-Materialien</h2></div>
+				<p class="sub">Maximale Menge aus deinem Bestand</p>
+				<div class="field"><label for="jointBudsIn">Marihuana-Buds vorhanden</label><input id="jointBudsIn" type="number" min="0" step="1" value="10" inputmode="numeric"></div>
+				<div class="field"><label for="paperIn">Papier vorhanden</label><input id="paperIn" type="number" min="0" step="1" value="10" inputmode="numeric"></div>
+				<div class="results" id="jointMaterialsOut" aria-live="polite"></div>
+				<p class="formula"><strong>1 Marihuana-Bud + 1 Papier</strong> = 1 Joint</p>
+			</article>
+			<article class="card sale-card">
+				<div class="sale-intro"><div class="card-head"><div class="num">05</div><h2>Verkauf an Buerger</h2></div>
+				<p class="sub">Einnahmen aus dem Joint-Verkauf</p></div>
+				<div class="field"><label for="sellJointsIn">Joints zum Verkauf</label><input id="sellJointsIn" type="number" min="0" step="1" value="1" inputmode="numeric"></div>
+				<div class="sale-output"><div class="results" id="jointSalesOut" aria-live="polite"></div>
+				<p class="formula"><strong>1 Joint</strong> = 500 Muenzen</p></div>
 			</article>
 		</section>
 		<footer><span>FICTIONAL GAME TOOL</span> // Alle Angaben sind frei erfunden und nur fuer dein Spiel bestimmt.</footer>
@@ -93,11 +125,35 @@
 			document.getElementById('materialsOut').innerHTML = row('Marihuana-Buds vorhanden', buds, 'Stueck') + row('Verpackungsmaterial vorhanden', packaging, 'Stueck') + row('Verpacktes Weed moeglich', packed, 'Einheiten', true);
 		}
 
+		function calculateJointTarget() {
+			const joints = amount('targetJointIn');
+			document.getElementById('targetJointOut').innerHTML = row('Marihuana-Buds benoetigt', joints, 'Stueck') + row('Papier benoetigt', joints, 'Stueck') + row('Joints', joints, 'Einheiten', true);
+		}
+
+		function calculateJointMaterials() {
+			const buds = amount('jointBudsIn');
+			const paper = amount('paperIn');
+			const joints = Math.min(buds, paper);
+			document.getElementById('jointMaterialsOut').innerHTML = row('Marihuana-Buds vorhanden', buds, 'Stueck') + row('Papier vorhanden', paper, 'Stueck') + row('Joints moeglich', joints, 'Einheiten', true);
+		}
+
+		function calculateJointSales() {
+			const joints = amount('sellJointsIn');
+			document.getElementById('jointSalesOut').innerHTML = row('Joints zum Verkauf', joints, 'Einheiten') + row('Einnahmen', joints * 500, 'Muenzen', true);
+		}
+
 		document.getElementById('targetIn').addEventListener('input', calculateTarget);
 		document.getElementById('budsIn').addEventListener('input', calculateMaterials);
 		document.getElementById('packagingIn').addEventListener('input', calculateMaterials);
+		document.getElementById('targetJointIn').addEventListener('input', calculateJointTarget);
+		document.getElementById('jointBudsIn').addEventListener('input', calculateJointMaterials);
+		document.getElementById('paperIn').addEventListener('input', calculateJointMaterials);
+		document.getElementById('sellJointsIn').addEventListener('input', calculateJointSales);
 		calculateTarget();
 		calculateMaterials();
+		calculateJointTarget();
+		calculateJointMaterials();
+		calculateJointSales();
 	</script>
 </body>
 </html>
